@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import {
   Colors,
   DefaultTheme,
   Provider as PaperProvider
 } from 'react-native-paper';
-import Header from './components/Header';
+import AuthScreen from './screens/Auth';
+import PanelScreen from './screens/Panel';
 
 const theme = {
   ...DefaultTheme,
@@ -17,11 +18,17 @@ const theme = {
   },
 };
 
+const AppNavigator = createSwitchNavigator({
+  Auth: AuthScreen,
+  Panel: PanelScreen,
+});
+
+const AppContainer = createAppContainer(AppNavigator);
+
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <Header />
-      <Text>Hello World!</Text>
+      <AppContainer />
     </PaperProvider>
   );
 };
