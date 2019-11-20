@@ -5,11 +5,25 @@ import {
   Text,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import { Provider as PaperProvider } from 'react-native-paper';
+import {
+  Colors,
+  DefaultTheme,
+  Provider as PaperProvider
+} from 'react-native-paper';
 
-const App = () => {
+const theme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: Colors.lightBlue600,
+    accent: Colors.lightBlue700,
+  },
+};
+
+export default function App() {
   return (
-    <PaperProvider>
+    <PaperProvider theme={theme}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <Icon name="rocket" size={30} color="#900" />
@@ -18,5 +32,3 @@ const App = () => {
     </PaperProvider>
   );
 };
-
-export default App;
