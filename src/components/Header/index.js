@@ -3,7 +3,8 @@ import { StatusBar } from 'react-native';
 import { Appbar, Colors } from 'react-native-paper';
 
 export default function App({
-  showBackButton
+  showBackButton,
+  hiddenSearchButton,
 }) {
   return (
     <>
@@ -22,7 +23,8 @@ export default function App({
           title="ListApp.me"
         />
 
-        <Appbar.Action icon="magnify" />
+        {!hiddenSearchButton && 
+          <Appbar.Action icon="magnify" />}
       </Appbar.Header>
     </>
   );
