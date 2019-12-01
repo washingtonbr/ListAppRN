@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Dimensions } from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
+import { Colors } from 'react-native-paper';
 import Header from '../../components/Header'
 import SignInContainer from '../../containers/SignIn';
 import SignUpContainer from '../../containers/SignUp';
@@ -53,6 +54,13 @@ export default function AuthScreen({
           SignInTab,
           SignUpTab,
         })}
+        renderTabBar={props =>
+          <TabBar
+            {...props}
+            style={{ backgroundColor: Colors.lightBlue600 }}
+            indicatorStyle={{ backgroundColor: Colors.white }}
+          />
+        }
         onIndexChange={index => setTabsState({ ...tabsState, index })}
         initialLayout={{ width: Dimensions.get('window').width }}
       />
