@@ -1,18 +1,10 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Button } from 'react-native-paper';
-import Header from '../../components/Header'
+import PanelContainer from '../../containers/Panel';
 
-export default function PanelScreen({
-  navigation
-}) {
+export default function PanelScreen() {
   return (
     <>
-      <Header />
-      <Text>Panel</Text>
-      <Button mode="contained" onPress={() => navigation.navigate('Auth')}>
-        Back to Auth
-      </Button>
+      <PanelContainer />
     </>
   );
 }
